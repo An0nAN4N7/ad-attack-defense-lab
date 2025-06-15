@@ -1,92 +1,70 @@
-# 🧱 DC01 – Domain Controller Setup
+# 🧱 DC01 – Domain Controller (Windows Server 2019)
 
 ## 🖥️ Base Configuration
 
-| Parameter         | Value                       |
-|------------------|-----------------------------|
-| Hostname         | `DC01`                      |
-| OS               | Windows Server 2019         |
-| RAM              | 2 GB                        |
-| CPU              | 2 Cores                     |
-| Network Adapter  | Internal Network (`ADLabNet`) |
-| IP Address       | `192.168.10.10`             |
-| Subnet Mask      | `255.255.255.0`             |
-| DNS Server       | `127.0.0.1` (local/DNS role) |
+| Parameter        | Value                     |
+|------------------|---------------------------|
+| Hostname         | `DC01`                    |
+| OS               | Windows Server 2019       |
+| CPU / RAM        | 2 Cores / 2 GB            |
+| Network Adapter  | Internal (`ADLabNet`)     |
+| IP Address       | `192.168.10.10`           |
+| DNS Server       | `127.0.0.1` (local DNS)   |
 
 ---
 
 ## ⚙️ Active Directory Setup
 
-- Domain Name: `corp.local`
-- Role Installed: `AD-Domain-Services`
-- DNS Role: Included during ADDS promotion
-- Forest Setup:
+- **Domain:** `corp.local`
+- **Roles Installed:** `AD-Domain-Services` (includes DNS)
+- **AD Forest Installation:**
   ```powershell
   Install-ADDSForest -DomainName "corp.local"
+  ```
 
 ---
 
-## Verification Commands
+## ✅ Verification Commands
 
-### View domain name
-(Get-ADDomain).DNSRoot  :   corp.local
-
-
-### View forest root domain
-(Get-ADForest).RootDomain  :  corp.local
-
-
-### Confirm domain controller hostname
-(Get-ADDomainController).Name   :   WIN-B70D89CFCNG
-
-### Confirm DNS is working
-Resolve-DnsName   :   corp.local
-
+```powershell
+(Get-ADDomain).DNSRoot              # corp.local
+(Get-ADForest).RootDomain           # corp.local
+(Get-ADDomainController).Name       # DC01
+Resolve-DnsName corp.local          # DNS check
+```
 
 ---
 
-## Notes
+## 🔍 Notes
 
-
-- DC01 acts as the first and only Domain Controller in the `corp.local` forest
-- This server also handles internal DNS for the AD environment
-- Other clients (WIN10, Kali) will point their DNS to `192.168.10.10` to resolve AD services
-- This machine will later host AD users, groups, OUs, and be the target for attack scenarios
-- SafeModeAdminPassword was configured during `Install-ADDSForest`
-- AD Tools (like `Active Directory Users and Computers`) are installed with `-IncludeManagementTools`
-
+- DC01 is the **first Domain Controller** for `corp.local`
+- Acts as **AD DS + DNS server**
+- Other machines (e.g., WIN10, Kali) will use `192.168.10.10` as their DNS
+- `SafeModeAdminPassword` set during forest creation
+- AD tools installed via `-IncludeManagementTools`
 
 ---
-
 
 ## 🖼️ Screenshots
 
 <details>
-<summary><strong>📟 PowerShell Verification – AD Domain & Forest</strong></summary>
-
-![AD Verified](../screenshots/dc01-verification.png)
-
+<summary><strong>AD & Forest Verification</strong></summary>
+<img src="../screenshots/dc01-verification.png" alt="AD Verified">
 </details>
 
 <details>
-<summary><strong>🌐 DNS Resolution – corp.local</strong></summary>
-
-![DNS Resolution](../screenshots/dc01-dns-test.png)
-
+<summary><strong>DNS Resolution</strong></summary>
+<img src="../screenshots/dc01-dns-test.png" alt="DNS Resolution">
 </details>
 
 ---
 
-## ⏱️ Time & Progress
+## ⏱️ Time Tracking
 
-| Task                                | Status     | Time Taken |
-|-------------------------------------|------------|------------|
-| Windows Server Setup                | ✅ Done     | ~20 mins   |
-| Configure Static IP, Hostname, DNS | ✅ Done     | ~10 mins   |
-| Install AD DS Role                  | ✅ Done     | ~10 mins   |
-| Promote to Domain Controller        | ✅ Done     | ~15 mins   |
-| Post-Install Verification           | ✅ Done     | ~5 mins    |
+| Task                             | Status  | Time     |
+|----------------------------------|---------|----------|
+| Windows Setup & Networking       | ✅ Done | ~30 mins |
+| AD DS Role & Promotion           | ✅ Done | ~25 mins |
+| Post-Install Checks              | ✅ Done | ~5 mins  |
 
-> 🧩 **Milestone:** Week 1 – Task 1 Completed  
-> 🗂️ **Machine:** DC01 – `corp.local` Domain Controller
-
+> 📌 **Milestone:** Week 1 – DC01 setup complete.
