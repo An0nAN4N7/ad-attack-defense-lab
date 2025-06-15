@@ -72,15 +72,6 @@ net config workstation
 <img src="../screenshots/win10-domain-joined.png" alt="Domain Join Confirmation">
 </details>
 
-<details>
-<summary><strong>System Info Output</strong></summary>
-<img src="../screenshots/win10-systeminfo.png" alt="System Info">
-</details>
-
-<details>
-<summary><strong>Ping DC01 Test</strong></summary>
-<img src="../screenshots/win10-ping-dc01.png" alt="Ping Test">
-</details>
 
 ## ⏱️ Time Tracking
 
