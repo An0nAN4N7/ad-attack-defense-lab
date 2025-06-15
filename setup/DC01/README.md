@@ -28,26 +28,19 @@
 
 ## Verification Commands
 
-# View domain name
-(Get-ADDomain).DNSRoot
-corp.local
+### View domain name
+(Get-ADDomain).DNSRoot  :   corp.local
 
 
-# View forest root domain
-(Get-ADForest).RootDomain
-
-corp.local
+### View forest root domain
+(Get-ADForest).RootDomain  :  corp.local
 
 
-# Confirm domain controller hostname
-(Get-ADDomainController).Name
+### Confirm domain controller hostname
+(Get-ADDomainController).Name   :   WIN-B70D89CFCNG
 
-WIN-B70D89CFCNG
-
-# Confirm DNS is working
-Resolve-DnsName 
-
-corp.local
+### Confirm DNS is working
+Resolve-DnsName   :   corp.local
 
 
 ---
