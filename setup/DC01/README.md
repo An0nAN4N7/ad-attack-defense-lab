@@ -35,14 +35,19 @@ corp.local
 
 # View forest root domain
 (Get-ADForest).RootDomain
+
 corp.local
 
 
 # Confirm domain controller hostname
 (Get-ADDomainController).Name
+
 WIN-B70D89CFCNG
+
 # Confirm DNS is working
-Resolve-DnsName corp.local
+Resolve-DnsName 
+
+corp.local
 
 
 ---
