@@ -12,19 +12,25 @@
   <img src="https://img.shields.io/badge/Windows_Server-2019-blue?style=flat-square&logo=windows&logoColor=white" />
   <img src="https://img.shields.io/badge/Windows_10-Pro-blue?style=flat-square&logo=windows10" />
   <img src="https://img.shields.io/badge/Kali_Linux-Attacker-critical?style=flat-square&logo=kali-linux" />
-  <img src="https://img.shields.io/badge/Stage-Week%201-green?style=flat-square&logo=github" />
+  <img src="https://img.shields.io/badge/Stage-Week%202-green?style=flat-square&logo=github" />
 </p>
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Overview
 
-| Machine         | Purpose                             | Status    |
-|------------------|-------------------------------------|-----------|
-| `DC01`           | Domain Controller (`corp.local`)    | ✅ Done    |
-| `WIN10-1`        | Domain Workstation (Client)         | ✅ Done    |
-| `KALI-ATTACKER`  | Offensive Attack Simulation Machine | 🔜 Coming |
+This repository contains a full AD Attack-Defense Lab setup with:
 
+- ✅ Domain Controller (`DC01`) on Windows Server 2019
+- ✅ Client Workstation (`WIN10-1`) joined to domain
+- 🔜 Kali Linux as attacker machine *(coming soon)*
+
+Designed for:
+
+- 🧠 Learning Active Directory fundamentals
+- ⚔️ Practicing Red & Blue Team skills
+- 🛡️ Offensive & Defensive simulations
+- 💼 Resume-boosting hands-on experience
 
 ---
 
@@ -49,22 +55,23 @@
 
 ---
 
-## 🖥️ Machines
+## 🖥️ Machines Summary
 
 | Hostname   | OS                  | Role                          | IP Address     |
 |------------|---------------------|-------------------------------|----------------|
 | DC01       | Windows Server 2019 | Domain Controller + DNS       | 192.168.10.10  |
-| WIN10-1    | Windows 10          | Domain-Joined Client Machine  | 192.168.10.11  |
-| (Kali)     | Kali Linux          | Attacker Box *(Optional)*     | 192.168.10.100 |
+| WIN10-1    | Windows 10 Pro       | Domain-Joined Client Machine  | 192.168.10.11  |
+| Kali       | Kali Linux          | Attacker Box *(Coming Soon)*  | 192.168.10.100 |
 
 ---
 
-## 🛠️ Tools Used
+## 🔧 Tools & Technologies Used
 
-- VirtualBox (Virtualization)
-- Windows Server Manager / PowerShell
-- CMD & netsh for networking
-- AD DS, DNS, netdom for domain setup
+- **VirtualBox / VMware** – Virtualization
+- **Windows Server Manager / PowerShell** – Domain Configuration
+- **CMD & netsh** – Network Setup
+- **AD DS / DNS Roles** – Directory Services
+- **Screenshots** – For visual verification
 
 ---
 
@@ -76,41 +83,50 @@ ActiveDirectoryLab/
 │   └── README.md
 ├── WIN10/              # Domain-joined Client setup
 │   └── README.md
-├── screenshots/        # All configuration and verification screenshots
-├── README.md           # Main project overview
-└── LICENSE             # (Optional) Licensing info
+├── KALI/               # Attacker machine setup (Coming Soon)
+│   └── README.md
+├── screenshots/        # Screenshots for documentation
+├── setup/              # Lab overview & guide
+│   └── README.md
+├── README.md           # Main project entry point
+└── LICENSE             # Project license (MIT)
 ```
 
 ---
 
-## 🧑‍💻 Use Cases
+## 🧠 Use Cases
 
-- ✅ Red Teaming / Attack Simulation (Kerberoasting, Enumeration, etc.)
-- ✅ Blue Teaming / Detection Lab (Event Logs, Sysmon, Winlogbeat, etc.)
-- ✅ Active Directory Basics & GPO Testing
-- ✅ DNS Enumeration / Pivoting Practice
+- ✅ **Red Teaming:** Kerberoasting, Pass-the-Hash, Enumeration
+- ✅ **Blue Teaming:** Event Logs, Sysmon, Winlogbeat
+- ✅ **AD Fundamentals:** GPOs, User/Group/OUs management
+- ✅ **DNS & Internal Recon Practice**
 
 ---
 
-## 📝 Authors
+## 📌 Project Status
+
+| Component     | Status        | Notes                            |
+|---------------|---------------|----------------------------------|
+| `DC01`        | ✅ Complete    | Domain setup & verification      |
+| `WIN10-1`     | ✅ Complete    | Joined to domain                 |
+| `Kali`        | 🔜 Coming Soon | Attacker tools & scenarios       |
+| Users/OUs     | 🔜 Pending     | For attack surface               |
+| Attack Chains | 🔜 Planned     | Real-world AD attack simulation  |
+| Detection     | 🔜 Planned     | Blue team tooling                |
+
+---
+
+## ✍️ Author
 
 **An0nAN4N7**  
 Cybersecurity enthusiast & aspiring VAPT engineer  
-GitHub: [An0nAN4N7](https://github.com/An0nAN4N7)
+GitHub: [@An0nAN4N7](https://github.com/An0nAN4N7)
 
 ---
 
-## 📌 Status
+## 📜 License
 
-- ✅ DC01 – Configured & Documented  
-- ✅ WIN10 – Domain Joined & Documented  
-- ⏳ Kali – Coming Soon (Optional Setup)
-
----
-
-## 🛡️ License
-
-This project is licensed under the MIT License. Feel free to fork, enhance, and share!
+This project is licensed under the **MIT License**.  
+Feel free to fork, modify, and share it for learning or demonstration purposes.
 
 ---
-
